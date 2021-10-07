@@ -50,7 +50,7 @@ python3 add_dlinks.py
 python3 publish_dlinks.py
 ```
 
-- In development: Put current dLinks into 'dlinks.csv' (currently an unseperated list- fix coming soon), run:
+- Put current dLinks into 'dlinks.csv' (currently an unseperated list- fix coming soon), run:
 ```
 python3 dlinks_to_csv.py
 ```
