@@ -40,12 +40,12 @@ python3 forsale_to_csv.py
 python3 update_prices.py
 ```
 
-- To batch add dLinks, paste names list under "label" column and run:
+- To batch add dLinks, paste names list under "label" column, input your desired url and title into the add_dlinks.py script, and run:
 ```
 python3 add_dlinks.py
 ```
 
-- Once you add dLinks, you will need to publish the page for it to be public. To publish a page, run:
+- Once you add dLinks, you will need to publish the page for it to be public. To publish a page, edit the publish_dlinks address and run:
 ```
 python3 publish_dlinks.py
 ```
