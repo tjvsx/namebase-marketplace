@@ -1,3 +1,61 @@
+#ur.dsheet: CSV files for managing domain names on Namebase.
+
+### Warning: This repo is for informational and teaching purposes only, and these scripts are for testing purposes only. It's reccomended that you use a test account with top-level domains (TLDs) you don't care for losing. By using these scripts, you agree that I am not responsible for any losses that may be had from such use. 
+
+### Dependencies
+- python / python3
+- Linux / Ubuntu
+- dotenv
+
+Minor changes were made to https://github.com/pretended/namebase-marketplace to best suit the purpose. 
+
+### setup authorizations on your account: input your information into a .env file at the root directory:
+'''
+namebaseUserEmail = "<your@email>"
+namebaseUserPassword = "<yourPassword>"
+namebaseMainCookie = "<your"NamebsebaseMain"Cookie>"
+'''
+for more info on the cookie, see 'Github OAuth bypass and 2FA Auth Bypass' below.
+
+#Using the scripts:
+### You can find these scripts in dsheets/scripts and the accompanying csv files in dsheets/csv. For best results, run them in the following order:
+
+- To put domains into a 'domains.csv' file; run in terminal:
+'''
+python3 domains_to_csv.py
+'''
+
+- Setup initial listings of 1000000HNS each for domains in 'domains.csv':
+'''
+python3 first_listing.py
+'''
+
+- Put TLDs currently for sale into 'selling.csv':
+'''
+python3 forsale_to_csv.py
+'''
+
+- To list for specific prices, edit the price for a domain in selling.csv, and run:
+'''
+python3 update_prices.py
+'''
+
+- To batch add dLinks, paste names list under "label" column and run:
+'''
+python3 add_dlinks.py
+'''
+
+- Once you add dLinks, you will need to publish the page for it to be public. To publish a page, run:
+'''
+python3 publish_dlinks.py
+''' 
+
+- In development: Put current dLinks into 'dlinks.csv' (currently an unseperated list- fix coming soon), run:
+'''
+python3 dlinks_to_csv.py
+'''
+
+-----------------------------------------
 Namebase Marketplace Api for Python
 ==
 

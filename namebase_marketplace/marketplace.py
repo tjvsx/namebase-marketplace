@@ -8,6 +8,9 @@ from namebase_marketplace.utils import Request
 import requests
 import urllib.parse
 import json
+from dotenv import load_dotenv
+load_dotenv()
+import os
 
 DEFAULT_API_ROOT = "https://www.namebase.io"
 
@@ -40,7 +43,7 @@ class Marketplace:
             "Content-Type": 'application/json',
         }
 
-        self.cookies = _get_cookies(email=email, pwd=pwd)
+        self.cookies = { "namebase-main": os.environ.get("namebaseMainCookie") } 
         self.request = Request(api_base_url=api_root,
                                headers=headers,
                                cookies=self.cookies,
@@ -85,8 +88,7 @@ class Marketplace:
         if options is None:
             options = {}
             mark = ''
-        return self.request.post(Endpoint.DOMAIN_HISTORY + f'{domain}{Utils.LIST}{mark}{encode_dict(options)}',
-                                 data=params, json_data=params)
+        return self.request.post(Endpoint.DOMAIN_HISTORY + f'{domain}{Utils.LIST}{mark}{encode_dict(options)}', data=params, json_data=params)
 
     def update_domain(self, domain: str, amount, description="", asset="HNS", options={}):
         """
@@ -162,7 +164,16 @@ class Marketplace:
     def get_my_onsale_domains(self):
         return self.request.get(Endpoint.MY_SALE_DOMAINS)
 
+    def get_dlinks(self):
+        return self.request.get(Endpoint.DLINK)
+    
     def consent_offers(self, domain: str, consent: bool):
         params = {"doesConsentToOffers": consent}
-        return self.request.post(Endpoint.DOMAIN_HISTORY + f'{domain}{Utils.CONSENT}', data=params,
-                                 json_data=params)  # as in namebase
+        return self.request.post(Endpoint.DOMAIN_HISTORY + f'{domain}{Utils.CONSENT}', data=params, json_data=params)  # as in namebase
+    
+    def put_dlinks(self, params):
+        return self.request.put(Endpoint.DLINK, data=json.dumps(params), json_data=params, params=params)
+        
+    def publish_dlinks(self, params):
+        return self.request.post(Endpoint.PUBLISH_DLINK, data=params)
+

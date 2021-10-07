@@ -14,6 +14,7 @@ class Endpoint():
     GET_DOMAIN = '/api/domains/get/'
     WATCH_DOMAIN = '/api/domains/watch/'
     DLINK = '/api/user/dlinks'
+    PUBLISH_DLINK = '/api/user/dlinks/publish'
     MY_SALE_DOMAINS = '/api/user/domains/listed'
     MY_DOMAINS = '/api/user/domains/not-listed/'
 class Utils():
