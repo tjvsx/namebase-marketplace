@@ -8,9 +8,6 @@ class Endpoint():
     USER_INFO = '/api/user'
     OPEN_BID = f'/api/{API_VERSION}/auction/'  # + <DOMAIN>/bid
     MAKE_OFFER = f'/api/{API_VERSION}/marketplace/'
-    OFFERS_RECEIVED = f'/api/{API_VERSION}/offers/received'
-    OFFERS_HISTORY = f'/api/{API_VERSION}/offers/history'
-    ACCEPT_OFFER_BID = f'/api/{API_VERSION}/offers/bid'
     DOMAIN_HISTORY = MAKE_OFFER
     LOGIN = '/auth/local/account-login'
     ENDING_SOON = '/api/domains/ending-soon/'  # + OFFSET
@@ -20,8 +17,6 @@ class Endpoint():
     PUBLISH_DLINK = '/api/user/dlinks/publish'
     MY_SALE_DOMAINS = '/api/user/domains/listed'
     MY_DOMAINS = '/api/user/domains/not-listed/'
-    API_DOMAINS = '/api/domains/'
-
 class Utils():
     BID = '/bid'
     HISTORY = '/history'
@@ -32,7 +27,6 @@ class Utils():
     CONSENT = '/consent'
     SORT_KEY_ARRAY = ['bid', 'price', 'name', 'date']
     DEFAULT_SORT_KEY = 'bid'
-    TRANSFER = '/transfer'
     SORT_DIRECTION_ARRAY = ['asc', 'desc']
     DEFAULT_OPTIONS_MY_DOMAINS = {"sortKey":"acquiredAt","sortDirection":"desc","limit":100}
     @staticmethod
