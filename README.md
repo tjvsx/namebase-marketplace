@@ -1,4 +1,4 @@
-# ur.dsheet: CSV files for managing domain names on Namebase.
+# ur.dsheet: CSV files and shell scripts for managing domain names on Namebase.
 
 ### Warning: This repo is for informational and teaching purposes only, and these scripts are for testing purposes only. It's reccomended that you use a test account with top-level domains (TLDs) you don't care for losing. By using these scripts, you agree that I am not responsible for any losses that may be had from such use. 
 
